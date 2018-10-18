@@ -1,29 +1,55 @@
 class PostsController < ApplicationController
   def index
     @posts = Post.all
-    #censor offensive language
+    censor_post_title
+  end
+
+  def show
+    @post = Post.find(params[:id])
+    censor_post_body
+  end
+
+  def censor_post_title
+    #censor offensive language from index view
     @posts.each do |post|
-      post_title = post.title.split(" ")
-      post_body = post.body.split(" ")
-      #if a post title includes a curse word, censor the title
-      post_title.each do |word|
-        if post_title.include?("shit") || post_title.include?("fuck") || post_title.include?("ass") || post_title.include?("bitch") || post_title.include?("dick") || post_title.include?("cunt") || post_title.include?("damn")
-          post.title = "Censored"
-        end
-      end
-      #if a post body contains a curse word, censor the body
-      post_body.each do |word|
-        if post_body.include?("shit") || post_body.include?("fuck") || post_body.include?("ass") || post_body.include?("bitch") || post_body.include?("dick") || post_body.include?("cunt") || post_body.include?("damn")
-          post.body = "This post has been censored due to offensive language"
-        end
+      if post.title.include?("shit") || post.title.include?("fuck") || post.title.include?("ass") || post.title.include?("bitch") || post.title.include?("dick") || post.title.include?("cunt") || post.title.include?("damn")
+        post.title = "Censored"
       end
     end
   end
 
-  def show
+  def censor_post_body
+    #censor offensive language from show view
+    post = @post
+    post_body = post.body.split(" ")
+
+    if post.title.include?("shit") || post.title.include?("fuck") || post.title.include?("ass") || post.title.include?("bitch") || post.title.include?("dick") || post.title.include?("cunt") || post.title.include?("damn")
+      post.title = "Censored"
+    end
+    #iterate through post body
+    post_body.each do |word|
+      if word == "shit" || word == "fuck" || word == "ass" || word == "bitch" || word == "dick" || word == "cunt" || word == "damn"
+        post.body = "This post has been censored due to offensive language."
+      end
+    end
   end
 
   def new
+    @post = Post.new
+  end
+
+  def create
+    @post = Post.new
+    @post.title = params[:post][:title]
+    @post.body = params[:post][:body]
+
+    if @post.save
+      flash[:notice] = "Post was saved!"
+      redirect_to @post
+    else
+      flash[:notice] = "There was an error saving the post. Please try again."
+      render :new
+    end
   end
 
   def edit
