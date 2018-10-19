@@ -1,8 +1,17 @@
 require 'random_data'
+#create topics
+15.times do
+  Topic.create!(
+    name: RandomData.random_sentence,
+    description: RandomData.random_paragraph
+  )
+end
+topics = Topic.all
 
 #create posts
 50.times do
   Post.create!(
+    topic: topics.sample,
     title: RandomData.random_sentence,
     body: RandomData.random_paragraph
   )
@@ -40,3 +49,4 @@ puts "#{Post.count} posts created"
 puts "#{Comment.count} comments created"
 puts "#{Advertisement.count} ads created"
 puts "#{Question.count} questions created"
+puts "#{Topic.count} topics created"
