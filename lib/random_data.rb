@@ -27,4 +27,8 @@ module RandomData
   def self.random_number
     rand(1..10)
   end
+
+  def self.random_boolean
+    [true, false].sample
+  end 
 end

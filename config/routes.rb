@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+
+  resources :questions
+  
+  get 'questions/show'
+
+  get 'questions/edit'
+
   resources :advertisements
 
   get 'advertisements/show'
