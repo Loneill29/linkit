@@ -5,7 +5,7 @@ class TopicsController < ApplicationController
 
   def show
     @topic = Topic.find(params[:id])
-    @sponsoredpost = SponsoredPost.find(params[:id])
+    @sponsored_post = SponsoredPost.find(params[:id])
   end
 
   def censor_topic_title
