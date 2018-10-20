@@ -1,11 +1,18 @@
 <h1>All Questions</h1>
 
-<% @questions.each do |question| %>
-  <div class="media">
-    <div class="media-body">
-      <h4 class="media-heading">
-        <%= link_to question.title, question %>
-      </h4>
-    </div>
+<div class="row">
+  <div class="col-md-8">
+    <% @questions.each do |question| %>
+      <div class="media">
+        <div class="media-body">
+          <h4 class="media-heading">
+            <%= link_to question.title %>
+          </h4>
+        </div>
+      </div>
+    <% end %>
   </div>
-<% end %>
+  <div class="col-md-4">
+    <%= link_to "Ask a Question", new_question_path, class: 'btn btn-success' %>
+  </div>
+</div>

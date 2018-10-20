@@ -37,7 +37,7 @@ class QuestionsController < ApplicationController
 
   def resolved?
     @question = Question.find(params[:id])
-    
+
     if @question.resolved
       flash[:notice] = "This question has been resolved."
     end
@@ -57,7 +57,6 @@ class QuestionsController < ApplicationController
       flash[:notice] = "Question was saved!"
       redirect_to @question
     else
-      flash[:notice] = "There was an error saving the question. Please try again."
       render :new
     end
   end
@@ -77,7 +76,6 @@ class QuestionsController < ApplicationController
       flash[:notice] = "Question was updated!"
       redirect_to @question
     else
-      flash.now[:alert] = "There was an error saving the question. Please try again."
       render :edit
     end
   end

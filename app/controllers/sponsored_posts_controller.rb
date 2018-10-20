@@ -40,7 +40,6 @@ class SponsoredPostsController < ApplicationController
       flash[:notice] = "Post was updated!"
       redirect_to [@sponsored_post.topic, @sponsored_post]
     else
-      flash.now[:alert] = "There was an error saving the post. Please try again."
       render :edit
     end
   end
