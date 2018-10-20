@@ -12,6 +12,7 @@ class UsersController < ApplicationController
 
     if @user.save
       flash[:notice] = "Welcome, #{@user.name}! Your account has been activated."
+      create_session(@user)
       redirect_to root_path
     else
       render :new
