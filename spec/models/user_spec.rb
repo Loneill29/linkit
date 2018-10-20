@@ -3,6 +3,8 @@ require 'rails_helper'
 RSpec.describe User, type: :model do
   let(:user) { User.create!(name: "Linkit User", email: "user@email.com", password: "password") }
 
+  it { is_expected.to have_many(:posts) }
+
   it { is_expected.to validate_presence_of(:name) }
 
   it { is_expected.to validate_presence_of(:email) }
@@ -27,7 +29,7 @@ RSpec.describe User, type: :model do
   end
 
   describe "invalid user" do
-    let(:user_with_invalid_name) { User.new(name: "", email: "user@bloccit.com") }
+    let(:user_with_invalid_name) { User.new(name: "", email: "user@email.com") }
     let(:user_with_invalid_email) { User.new(name: "Linkit User", email: "") }
 
     it "should be an invalid user due to blank name" do
