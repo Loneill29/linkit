@@ -18,6 +18,17 @@ topics = Topic.all
 end
 posts = Post.all
 
+#create sponsored posts
+20.times do
+  SponsoredPost.create!(
+    topic: topics.sample,
+    title: RandomData.random_sentence,
+    body: RandomData.random_paragraph,
+    price: RandomData.random_number
+  )
+end
+sponsored_posts = SponsoredPost.all
+
 #create comments
 100.times do
   Comment.create!(
