@@ -3,7 +3,7 @@ include RandomData
 include SessionsHelper
 
 RSpec.describe TopicsController, type: :controller do
-  let (:my_topic) { Topic.create!(name:  RandomData.random_sentence, description:   RandomData.random_paragraph) }
+  let(:my_topic) { create(:topic) }
   #guests can view topics, but not update/create/delete
   context "guest" do
     describe "GET index" do
