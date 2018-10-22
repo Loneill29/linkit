@@ -57,6 +57,7 @@ class QuestionsController < ApplicationController
       flash[:notice] = "Question was saved!"
       redirect_to @question
     else
+      flash[:error] = "There was an error saving the question. Please try again."
       render :new
     end
   end
@@ -76,6 +77,7 @@ class QuestionsController < ApplicationController
       flash[:notice] = "Question was updated!"
       redirect_to @question
     else
+      flash[:error] = "There was an error updating the question. Please try again."
       render :edit
     end
   end
@@ -87,7 +89,7 @@ class QuestionsController < ApplicationController
       flash[:notice] = "\"#{@question.title}\" was deleted successfully!"
       redirect_to questions_path
     else
-      flash.now[:alert] = "There was an error deleting the question. Please try again."
+      flash[:error] = "There was an error deleting the question. Please try again."
       render :show
     end
   end
