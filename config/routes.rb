@@ -18,7 +18,9 @@ Rails.application.routes.draw do
 
   post 'users/confirm' => "users#confirm"
 
-  resources :questions
+  resources :questions do
+    resources :answers, only: [:create, :destroy]
+  end 
 
   get 'questions/show'
 
