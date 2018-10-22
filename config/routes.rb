@@ -20,19 +20,9 @@ Rails.application.routes.draw do
 
   resources :questions do
     resources :answers, only: [:create, :destroy]
-  end 
-
-  get 'questions/show'
-
-  get 'questions/edit'
+  end
 
   resources :advertisements
-
-  get 'advertisements/show'
-
-  get 'about' => 'welcome#about'
-
-  get 'contact' => 'welcome#contact'
 
   get 'faq' => 'welcome#faq'
 

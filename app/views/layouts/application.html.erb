@@ -13,15 +13,13 @@
     <div class="container">
       <ul class = "nav nav-tabs">
         <li class="nav-link"><%= link_to "Linkit", root_path %></li>
-        <li class="nav-link"><%= link_to "About", about_path %></li>
         <li class="nav-link"><%= link_to "Topics", topics_path %></li>
-        <li class="nav-link"><%= link_to "Contact", contact_path %></li>
         <li class="nav-link"><%= link_to "FAQ", questions_path %></li>
         <!--signup/signin -->
         <div class="pull-right user-info">
           <% if current_user %>
-            <li class="pull-right"><%= link_to "Sign Out", session_path(current_user), method: :delete %></li>
-            <li class="pull-right gravatar"><%= image_tag current_user.avatar_url(48) %></li>
+            <li class="gravatar"><%= image_tag current_user.avatar_url(48) %></li>
+            <li class="pull-right sign-out"><%= link_to " - Sign Out", session_path(current_user), method: :delete %></li>
             <li class="pull-right"><%= link_to current_user.name, user_path(current_user) %></li>
           <% else %>
             <li><%= link_to "Sign In", new_session_path %></li>

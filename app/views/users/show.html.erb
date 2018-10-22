@@ -20,10 +20,18 @@
 </div>
 
 <h2>Posts</h2>
-<%= user_has_posts? %>
+<% if user_has_posts? %>
+  <%= render @user.posts %>
+<% end %>
 
 <h2>Comments</h2>
-<%= user_has_comments? %>
+<% if user_has_comments? %>
+  <%= render @user.comments %>
+<% end %>
 
 <h2>Favorites</h2>
-<%= user_has_favorites? %>
+<% if user_has_favorites? %>
+    <% @user.favorites.each do |favorite| %>
+      <%= render partial: 'users/favorites', locals: { post: favorite.post } %>
+    <% end %>
+<% end %>

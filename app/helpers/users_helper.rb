@@ -21,5 +21,5 @@ module UsersHelper
     else
       "#{@user.name} has not favorited any posts yet."
     end
-  end 
+  end
 end
