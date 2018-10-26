@@ -15,7 +15,7 @@ class UsersController < ApplicationController
       create_session(@user)
       redirect_to root_path
     else
-      flash[:error] = "There was a problem creating your account."
+      flash[:alert] = "There was a problem creating your account."
       render :new
     end
   end

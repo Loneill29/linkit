@@ -8,7 +8,8 @@
   <%= link_to "Edit Topic", edit_topic_path, class: 'btn btn-success' %>
 <% end %>
 
-  <div class="col-md-4">
+  <div class="col-md-8">
+    <p class="lead"><%= @topic.description %></p>
     <% if current_user %>
       <%= link_to "New Post", new_topic_post_path(@topic), class: 'btn btn-success' %>
   </div>
@@ -16,7 +17,6 @@
 
 <div class="row">
   <div class="col-md-8">
-    <p class="lead"><%= @topic.description %></p>
     <% @topic.posts.each do |post| %>
       <%= render partial: 'posts/post', locals: { post: post } %>
     <% end %>

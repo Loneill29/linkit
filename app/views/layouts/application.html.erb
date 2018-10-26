@@ -18,9 +18,9 @@
         <!--signup/signin -->
         <div class="pull-right user-info">
           <% if current_user %>
-            <li class="gravatar"><%= image_tag current_user.avatar_url(48) %></li>
             <li class="pull-right sign-out"><%= link_to " - Sign Out", session_path(current_user), method: :delete %></li>
-            <li class="pull-right"><%= link_to current_user.name, user_path(current_user) %></li>
+            <li class="pull-right name"><%= link_to current_user.name, user_path(current_user) %></li>
+            <li class="pull-right gravatar"><%= image_tag current_user.avatar_url(48) %></li>
           <% else %>
             <li><%= link_to "Sign In", new_session_path %></li>
             <li><%= link_to "Sign Up", new_user_path %></li>
@@ -29,13 +29,14 @@
       </ul>
 
       <% if flash[:notice] %>
-        <div class="alert alert-success alert-dismissible">
-          <a href="#" type="button" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <div class="alert alert-success">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
           <%= flash[:notice] %>
         </div>
       <% elsif flash[:alert] %>
-        <div class="alert alert-warning alert-dismissible">
-          <a href="#" type="button" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <div class="alert alert-warning">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+          <%= flash[:alert] %>
         </div>
       <% end %>
 

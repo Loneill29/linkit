@@ -8,7 +8,7 @@ class FavoritesController < ApplicationController
     if favorite.save
       flash[:notice] = "Post favorited."
     else
-      flash[:error] = "Favoriting failed."
+      flash[:alert] = "Favoriting failed."
     end
 
     redirect_to [post.topic, post]
@@ -21,7 +21,7 @@ class FavoritesController < ApplicationController
     if favorite.destroy
       flash[:notice] = "Post unfavorited."
     else
-      flash[:error] = "Unfavoriting failed."
+      flash[:alert] = "Unfavoriting failed."
     end
 
     redirect_to [post.topic, post]

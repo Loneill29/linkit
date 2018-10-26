@@ -46,7 +46,7 @@ class TopicsController < ApplicationController
     if @topic.save
       redirect_to @topic, notice: "Topic was saved!"
     else
-      flash[:error] = "There was an error saving the topic. Please try again."
+      flash[:alert] = "There was an error saving the topic. Please try again."
       render :new
     end
   end
@@ -63,7 +63,7 @@ class TopicsController < ApplicationController
       flash[:notice] = "Topic was updated!"
       redirect_to @topic
     else
-      flash[:error] = "There was an error updating the topic. Please try again."
+      flash[:alert] = "There was an error updating the topic. Please try again."
       render :edit
     end
   end
@@ -75,7 +75,7 @@ class TopicsController < ApplicationController
       flash[:notice] = "\"#{@topic.name} was deleted successfully."
       redirect_to action: :index
     else
-      flash[:error] = "There was an error deleting the topic. Please try again."
+      flash[:alert] = "There was an error deleting the topic. Please try again."
       render :show
     end
   end
@@ -88,10 +88,10 @@ class TopicsController < ApplicationController
   def authorize_user
     action = params['action']
     if (action == "new" || action == "create" || action == "destroy") && !current_user.admin?
-      flash[:error] = "You must be an admin to do that."
+      flash[:alert] = "You must be an admin to do that."
       redirect_to topics_path
     elsif action == "update" && !(current_user.admin? || current_user.moderator?)
-      flash[:error] = "You must be an admin or moderator to do that."
+      flash[:alert] = "You must be an admin or moderator to do that."
       redirect_to topics_path
     end
   end

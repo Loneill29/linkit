@@ -11,7 +11,7 @@ class AnswersController < ApplicationController
       flash[:notice] = "Answer saved successfully."
       redirect_to [@question]
     else
-      flash[:error] = "Answer failed to save."
+      flash[:alert] = "Answer failed to save."
       redirect_to [@question]
     end
   end
@@ -24,7 +24,7 @@ class AnswersController < ApplicationController
       flash[:notice] = "Answer was deleted."
       redirect_to [@question]
     else
-      flash[:error] = "Answer couldn't be deleted. Try again."
+      flash[:alert] = "Answer couldn't be deleted. Try again."
       redirect_to [@question]
     end
   end
@@ -39,7 +39,7 @@ class AnswersController < ApplicationController
     answer = Answer.find(params[:id])
 
     unless current_user == answer.user || current_user.admin?
-      flash[:error] = "You do not have permission to delete a answer."
+      flash[:alert] = "You do not have permission to delete a answer."
       redirect_to [answer.question]
     end
   end
