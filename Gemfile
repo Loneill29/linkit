@@ -24,7 +24,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.0'
   gem 'rails-controller-testing'
   gem 'shoulda'
-  gem 'factory_girl_rails', '~> 4.0'
+  gem 'factory_bot_rails'
 end
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
