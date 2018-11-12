@@ -16,15 +16,25 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+body {
+  background: #dbe0e5;
+}
+
 .nav {
   border: 0px;
   margin-bottom: 20px;
+  width: 100%!important;
 }
 
 .user-info {
   margin-top: 5px;
   margin-right: 5px;
   display: inline-block;
+}
+
+.jumbotron {
+  background: #ffff!important;
+  margin-top: 100px;
 }
 
 .sign-out {
