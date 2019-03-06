@@ -1,4 +1,4 @@
-  <div>
+  <div class="topics">
     <%= render partial: 'votes/voting', locals: { post: @post } %>
     <h1>
       <%= @post.title %> <br>
@@ -6,7 +6,6 @@
         submitted <%= time_ago_in_words(@post.created_at) %> ago by <%= @post.user.name %>
       </small>
     </h1>
-  </div>
 <% if user_is_authorized_for_post?(@post) %>
     <%= link_to "Edit", edit_topic_post_path(@post.topic, @post), class: 'btn btn-success' %>
 <% end %>
@@ -34,6 +33,7 @@
       </small>
     </div>
   </h3>
+</div>
   <% if current_user %>
     <%= render partial: 'favorites/favorite', locals: { post: @post } %>
   <% end %>

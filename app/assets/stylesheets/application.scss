@@ -52,9 +52,39 @@ h1 {
 }
 
 .btn-success, .btn-danger {
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 .submitted {
   font-size: 15px;
+}
+
+.media, .topics {
+  background: #ffff;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.home {
+  background: #ffff;
+  border-radius: 5px;
+  width: 30%;
+}
+
+.center-card {
+  margin-left: 5%;
+  margin-right:5%;
+}
+
+@media (max-width: 991px) {
+  .home {
+    margin-right: auto;
+    margin-left: auto;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+    width: 90%;
+  }
+
 }

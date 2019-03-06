@@ -1,4 +1,4 @@
-<div class="col-md-8">
+<div class="col-md-8 topics">
   <h1><%= @topic.name %></h1>
   <% if user_is_admin? %>
     <%= link_to "New Sponsored Post", new_topic_sponsored_post_path(@topic), class: 'btn btn-success' %>
@@ -7,8 +7,6 @@
   <% if user_is_authorized_for_topics? %>
     <%= link_to "Edit Topic", edit_topic_path, class: 'btn btn-success' %>
   <% end %>
-</div>
-<div class="col-md-8">
   <p class="lead"><%= @topic.description %></p>
   <% if current_user %>
     <%= link_to "New Post", new_topic_post_path(@topic), class: 'btn btn-success' %>
