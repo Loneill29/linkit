@@ -11,11 +11,11 @@ class UsersController < ApplicationController
     @user.password_confirmation = params[:user][:password_confirmation]
 
     if @user.save
-      flash[:notice] = "Welcome, #{@user.name}! Your account has been activated."
+      flash.now[:notice] = "Welcome, #{@user.name}! Your account has been activated."
       create_session(@user)
       redirect_to root_path
     else
-      flash[:alert] = "There was a problem creating your account."
+      flash.now[:alert] = "There was a problem creating your account."
       render :new
     end
   end

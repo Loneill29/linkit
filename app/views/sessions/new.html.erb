@@ -1,7 +1,7 @@
-<h2>Sign in</h2>
-
 <div class="row">
   <div class="col-md-8">
+    <h2>Sign in</h2>
+    <br>
     <%= form_for :session, url: sessions_path do |f|  %>
       <div class="form-group">
         <%= f.label :email %>
@@ -15,7 +15,7 @@
         <%= f.label :remember_me, class: 'checkbox' do %>
           Remember Me <%= f.check_box :remember_me, class: "remember-checkbox"  %>
         <% end %>
-        <%= f.submit "Sign in", class: 'btn btn-success' %>
+        <%= f.submit "Sign in", class: 'btn btn-primary' %>
       </div>
     <% end %>
   </div>

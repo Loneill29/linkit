@@ -5,8 +5,13 @@
     </h4>
     <small>
       <%= time_ago_in_words(post.created_at) %> ago.
-      <br>
-      Submitted by <%= post.user.name %> <br>
+    </small>
+    <br>
+    <small>
+      Submitted by <%= post.user.name %>
+    </small>
+    <br>
+    <small>
       <%= post.comments.count %> Comments
     </small>
   </div>

@@ -71,34 +71,24 @@ end
   )
 end
 
-# Create admin user
-admin = User.create!(
-  name:     'Admin User',
-  email:    'admin@email.com',
-  password: '000000',
-  role:     'admin'
-)
+questions = Question.all
 
-# Create member
-member = User.create!(
-  name:     'Member User',
-  email:    'member@email.com',
-  password: '000000'
-)
+#create answers
+25.times do
+  Answer.create!(
+    question: questions.sample,
+    body: RandomData.random_paragraph,
+    user: users.sample
+  )
+end
 
-# Create moderator
-moderator = User.create!(
-  name:     'Moderator User',
-  email:    'moderator@email.com',
-  password: '000000',
-  role: 'moderator'
-)
 
 puts "Seed finished"
 puts "#{User.count} users created"
 puts "#{Post.count} posts created"
 puts "#{Comment.count} comments created"
 puts "#{Advertisement.count} ads created"
+puts "#{Answer.count} answers created"
 puts "#{Question.count} questions created"
 puts "#{Topic.count} topics created"
 puts "#{Vote.count} votes created"

@@ -8,10 +8,10 @@ class CommentsController < ApplicationController
     comment.user = current_user
 
     if comment.save
-      flash[:notice] = "Comment saved successfully."
+      flash.now[:notice] = "Comment saved successfully."
       redirect_to [@post.topic, @post]
     else
-      flash[:alert] = "Comment failed to save."
+      flash.now[:alert] = "Comment failed to save."
       redirect_to [@post.topic, @post]
     end
   end
@@ -21,10 +21,10 @@ class CommentsController < ApplicationController
     comment = @post.comments.find(params[:id])
 
     if comment.destroy
-      flash[:notice] = "Comment was deleted."
+      flash.now[:notice] = "Comment was deleted."
       redirect_to [@post.topic, @post]
     else
-      flash[:alert] = "Comment couldn't be deleted. Try again."
+      flash.now[:alert] = "Comment couldn't be deleted. Try again."
       redirect_to [@post.topic, @post]
     end
   end
@@ -39,7 +39,7 @@ class CommentsController < ApplicationController
     comment = Comment.find(params[:id])
 
     unless current_user == comment.user || current_user.admin?
-      flash[:alert] = "You do not have permission to delete a comment."
+      flash.now[:alert] = "You do not have permission to delete a comment."
       redirect_to [comment.post.topic, comment.post]
     end
   end

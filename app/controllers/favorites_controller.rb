@@ -6,9 +6,9 @@ class FavoritesController < ApplicationController
     favorite = current_user.favorites.build(post: post)
 
     if favorite.save
-      flash[:notice] = "Post favorited."
+      flash.now[:notice] = "Post favorited."
     else
-      flash[:alert] = "Favoriting failed."
+      flash.now[:alert] = "Favoriting failed."
     end
 
     redirect_to [post.topic, post]
@@ -19,9 +19,9 @@ class FavoritesController < ApplicationController
     favorite = current_user.favorites.find(params[:id])
 
     if favorite.destroy
-      flash[:notice] = "Post unfavorited."
+      flash.now[:notice] = "Post unfavorited."
     else
-      flash[:alert] = "Unfavoriting failed."
+      flash.now[:alert] = "Unfavoriting failed."
     end
 
     redirect_to [post.topic, post]

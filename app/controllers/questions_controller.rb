@@ -39,7 +39,7 @@ class QuestionsController < ApplicationController
     @question = Question.find(params[:id])
 
     if @question.resolved
-      flash[:notice] = "This question has been resolved."
+      flash.now[:notice] = "This question has been resolved."
     end
   end
 
@@ -54,10 +54,10 @@ class QuestionsController < ApplicationController
     @question.resolved = params[:question][:resolved]
 
     if @question.save
-      flash[:notice] = "Question was saved!"
+      flash.now[:notice] = "Question was saved!"
       redirect_to @question
     else
-      flash[:alert] = "There was an error saving the question. Please try again."
+      flash.now[:alert] = "There was an error saving the question. Please try again."
       render :new
     end
   end
@@ -74,10 +74,10 @@ class QuestionsController < ApplicationController
 
 
     if @question.save
-      flash[:notice] = "Question was updated!"
+      flash.now[:notice] = "Question was updated!"
       redirect_to @question
     else
-      flash[:alert] = "There was an error updating the question. Please try again."
+      flash.now[:alert] = "There was an error updating the question. Please try again."
       render :edit
     end
   end
@@ -86,10 +86,10 @@ class QuestionsController < ApplicationController
     @question = Question.find(params[:id])
 
     if @question.destroy
-      flash[:notice] = "\"#{@question.title}\" was deleted successfully!"
+      flash.now[:notice] = "\"#{@question.title}\" was deleted successfully!"
       redirect_to questions_path
     else
-      flash[:alert] = "There was an error deleting the question. Please try again."
+      flash.now[:alert] = "There was an error deleting the question. Please try again."
       render :show
     end
   end

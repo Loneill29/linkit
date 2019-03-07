@@ -1,7 +1,8 @@
-<h1>All Questions</h1>
-
 <div class="row">
   <div class="col-md-8">
+    <br>
+    <h1 class="linkit">Questions
+    <%= link_to "Ask a Question", new_question_path, class: 'btn btn-primary question' %></h1>
     <% @questions.each do |question| %>
       <div class="media">
         <div class="media-body">
@@ -10,9 +11,9 @@
           </h4>
         </div>
       </div>
+      <hr>
     <% end %>
   </div>
   <div class="col-md-4">
-    <%= link_to "Ask a Question", new_question_path, class: 'btn btn-success' %>
   </div>
 </div>

@@ -1,9 +1,9 @@
-
-<div class="row topics">
-  <h1><%= @question.title %></h1>
-  <div class="col-md-8">
+<div class="col-md-8">
+  <div class="row topics">
+    <h1><%= @question.title %></h1>
     <p><%= @question.body %></p>
-    <div>
+    <hr>
+  <div>
       <h3>Answers</h3>
       <%= render @question.answers %>
     </div>

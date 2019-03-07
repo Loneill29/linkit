@@ -18,10 +18,10 @@ class SponsoredPostsController < ApplicationController
     @sponsored_post.topic = @topic
 
     if @sponsored_post.save
-      flash[:notice] = "Post was saved!"
+      flash.now[:notice] = "Post was saved!"
       redirect_to [@topic, @sponsored_post]
     else
-      flash[:notice] = "There was an error saving the post. Please try again."
+      flash.now[:notice] = "There was an error saving the post. Please try again."
       render :new
     end
   end
@@ -37,7 +37,7 @@ class SponsoredPostsController < ApplicationController
     @sponsored_post.price = params[:sponsored_post][:price]
 
     if @sponsored_post.save
-      flash[:notice] = "Post was updated!"
+      flash.now[:notice] = "Post was updated!"
       redirect_to [@sponsored_post.topic, @sponsored_post]
     else
       render :edit
@@ -48,7 +48,7 @@ class SponsoredPostsController < ApplicationController
     @sponsored_post = SponsoredPost.find(params[:id])
 
     if @sponsored_post.destroy
-      flash[:notice] = "\"#{@sponsored_post.title}\" was deleted successfully!"
+      flash.now[:notice] = "\"#{@sponsored_post.title}\" was deleted successfully!"
       redirect_to @sponsored_post.topic
     else
       flash.now[:alert] = "There was an error deleting the post. Please try again."
