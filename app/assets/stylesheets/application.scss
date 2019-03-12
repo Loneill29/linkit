@@ -53,6 +53,11 @@ body {
   font-family: 'Varela Round', sans-serif!important;
 }
 
+.fa-dollar-sign {
+  color: rgb(255, 69, 0)!important;
+  margin-top: 20px;
+}
+
 .btn-primary {
   background-color: rgb(0, 121, 211)!important;
 }
@@ -106,6 +111,15 @@ h1 {
   margin-bottom: 20px;
 }
 
+.favorite, .edit {
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+.comment-form {
+  margin-left: 15px;
+}
+
 .sign-up-home {
   margin-bottom: 0!important;
 }
@@ -126,9 +140,14 @@ h1 {
   font-size: 15px;
 }
 
+.up-down-votes {
+  margin-left: 0!important;
+  padding-left: 0!important;
+}
+
 .media, .topics {
   background: #ffff;
-  padding: 10px;
+  padding: 20px;
   border-radius: 5px;
   margin-bottom: 10px;
 }
@@ -159,6 +178,9 @@ p, h1, h2, h3, h4, small, strong, .checkbox {
   font-weight: bold!important;
 }
 
+.sponsored {
+  margin-left: 0px!important;
+}
 .posts {
   width: 90%;
   margin-left: 20px;
