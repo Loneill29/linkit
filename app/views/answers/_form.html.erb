@@ -1,9 +1,8 @@
 <br>
-<h5>Add an answer</h5>
 <%= form_for [question, answer] do |f| %>
   <div class="form-group">
     <%= f.label :body, class: 'sr-only' %>
-    <%= f.text_field :body, class: 'form-control', placeholder: "Enter a new answer" %>
+    <%= f.text_field :body, class: 'form-control', placeholder: "Add a new answer" %>
   </div>
-  <%= f.submit "Submit Answer", class: 'btn btn-primary pull-right' %>
+  <%= f.submit "Save", class: 'btn btn-primary' %>
 <% end %>

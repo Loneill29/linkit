@@ -2,14 +2,12 @@
   <h1>New Post</h1>
   <div class="row topics">
     <div>
-      <hr>
       <p>Posting rules:</p>
       <ul>
         <li>Posts containing offensive language will be censored</li>
         <li>Repeat posts will be removed</li>
         <li>Multiple censored posts will result in a ban</li>
       </ul>
-      <hr>
       <br>
     </div>
     <%= render partial: 'form', locals: { topic: @topic, post: @post } %>

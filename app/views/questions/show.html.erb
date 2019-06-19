@@ -2,17 +2,17 @@
   <div class="row topics">
     <h1><%= @question.title %></h1>
     <p><%= @question.body %></p>
+    <div class="edit-delete">
+      <%= link_to "Edit", edit_question_path(@question), class: 'btn btn-success' %>
+      <%= link_to "Delete Question", @question, method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure you want to delete this question?' } %>
+    </div>
     <hr>
-  <div>
+    <div>
       <h3>Answers</h3>
       <%= render @question.answers %>
     </div>
     <% if current_user %>
       <%= render 'answers/form', answer: Answer.new, question: @question %>
     <% end %>
-  </div>
-  <div class="col-md-4">
-    <%= link_to "Edit", edit_question_path(@question), class: 'btn btn-success' %>
-    <%= link_to "Delete Question", @question, method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure you want to delete this question?' } %>
   </div>
 </div>
